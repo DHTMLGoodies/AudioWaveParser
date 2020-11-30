@@ -1,0 +1,41 @@
+{
+  "name": "audiowaveparser",
+  "version": "1.0.0",
+  "description": "Parsing of audio waves in worker threads",
+  "main": "index.js",
+  "scripts": {
+    "declaration": "npx typescript --declarationDir ./dist -d ./lib/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --env production --watch",
+    "build": "webpack --env development",
+    "build:prod": "webpack --env production",
+    "lint": "tslint ./lib/index.ts",
+    "push:origin": "git push --tags origin HEAD:master",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch",
+    "deploy:prod": "npm run lint && npm run build:prod -s && npm run version:patch && npm run push:origin && npm publish",
+    "deploy:develop": "npm run lint && npm run build -s && npm run version:patch && npm run push:origin && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DHTMLGoodies/AudioWaveParser.git"
+  },
+  "author": "Alf Magne Kalleland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DHTMLGoodies/AudioWaveParser/issues"
+  },
+  "homepage": "https://github.com/DHTMLGoodies/AudioWaveParser#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "sourcemap": "^0.1.0",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.1.2",
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "promise-worker": "^2.0.1"
+  }
+}
